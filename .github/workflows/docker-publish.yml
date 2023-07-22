@@ -29,7 +29,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           docker pull k8s.gcr.io/build-image/go-runner:v2.3.1-go1.15.10-buster.0
+          docker pull k8s.gcr.io/build-image/debian-iptables:v12.1.2
           docker tag k8s.gcr.io/build-image/go-runner:v2.3.1-go1.15.10-buster.0 chenrulong0513/go-runner:v2.3.1-go1.15.10-buster.0
+          docker tag k8s.gcr.io/build-image/debian-iptables:v12.1.2 chenrulong0513/debian-iptables:v12.1.2
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -41,3 +43,4 @@ jobs:
       - name: Push to Docker Registry
         run: |
           docker push chenrulong0513/go-runner:v2.3.1-go1.15.10-buster.0
+          docker push chenrulong0513/debian-iptables:v12.1.2
